@@ -25,7 +25,10 @@
     <hr>
     <div id="responseHeader"></div>
     <script type="text/javascript">
-    window.addEventListener("DOMContentLoaded", getResponseHeaders);
+    window.addEventListener("DOMContentLoaded", function() {
+    	getResponseHeaders();
+    	isDesktopOS();
+    });
     
     function getResponseHeaders() {
         var req = new XMLHttpRequest();
@@ -54,6 +57,17 @@
             display += "<b>" + key + "</b> : " + data[key] + "<br>";
         }
         document.getElementById("responseHeader").innerHTML =  display;  
+    }
+    
+    function isDesktopOS(){
+    	let result = ( 'win16|win32|win64|windows|mac|macintel|linux|freebsd|openbsd|sunos'.indexOf(navigator.platform.toLowerCase()) >= 0 );
+    	
+    	if(result) {
+    		alert("데스크톱 입니다.");
+    	}
+    	else {
+    		alert("모바일입니다.");
+    	}
     }
     </script>
 </body>
