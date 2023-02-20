@@ -5,6 +5,9 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>헤더</title>
+	
+	<script src="https://cdn.jsdelivr.net/npm/mobile-detect@1.4.5/mobile-detect.min.js"></script>
+	
 	<style>
 		.value {
 			color: blue;
@@ -60,13 +63,13 @@
     }
     
     function isDesktopOS(){
-    	let result = ( 'win16|win32|win64|windows|mac|macintel|linux|freebsd|openbsd|sunos'.indexOf(navigator.platform.toLowerCase()) >= 0 );
+    	let result = window.matchMedia(`(max-width: 767px)`).matches;
     	
     	if(result) {
-    		alert("데스크톱 입니다.");
+    		alert("모바일입니다.");
     	}
     	else {
-    		alert("모바일입니다.");
+    		alert("PC입니다.");
     	}
     }
     </script>
